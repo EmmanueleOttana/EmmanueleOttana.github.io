@@ -6,80 +6,125 @@
 <title>Emmanuele Ottanà — Sviluppatore</title>
 <meta name="description" content="Portfolio di Emmanuele Ottanà: app Android, siti web e gestionali desktop.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f7f7f5; --surface:#ffffff; --text:#1b1c1e; --muted:#5f6368; --line:#e4e4e0;
-  --accent:#2f5bea; --accent-soft:#e8eeff; --tag:#f0f0ec;
+  --bg:#0a0d12; --bg2:#0f141b; --surface:#121821; --text:#e6edf3; --muted:#8b98a8; --line:#1f2a36;
+  --accent:#3ddc97; --accent2:#58a6ff; --warn:#f0b35a; --glow:rgba(61,220,151,.18); --grid:rgba(88,166,255,.05);
+  --mono:'JetBrains Mono',ui-monospace,monospace;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#111214; --surface:#1a1b1e; --text:#ececec; --muted:#9aa0a6; --line:#2a2c30;
-    --accent:#7d9bff; --accent-soft:#1f2640; --tag:#24262a;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#111214; --surface:#1a1b1e; --text:#ececec; --muted:#9aa0a6; --line:#2a2c30;
-  --accent:#7d9bff; --accent-soft:#1f2640; --tag:#24262a;
+:root[data-theme="light"]{
+  --bg:#f6f8fa; --bg2:#eef1f4; --surface:#ffffff; --text:#1f2328; --muted:#59636e; --line:#d8dee4;
+  --accent:#1a7f5a; --accent2:#0969da; --warn:#9a6700; --glow:rgba(26,127,90,.12); --grid:rgba(9,105,218,.05);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
-a{color:var(--accent);text-decoration:none}
+body{
+  margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+a{color:var(--accent2);text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+::selection{background:var(--accent);color:#000}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.mono{font-family:var(--mono)}
 
-header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
-.brand{font-weight:700;color:var(--text)}
-nav{display:flex;gap:18px;align-items:center}
-nav a{color:var(--muted);font-size:14px}
-.btn-sm{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:8px;padding:4px 10px;font:600 12px Inter,sans-serif;cursor:pointer}
-@media (max-width:560px){ nav .links{display:none} }
+/* header */
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+.brand{font:700 15px var(--mono);color:var(--text)}
+.brand b{color:var(--accent)}
+.brand .cur{display:inline-block;width:8px;height:15px;background:var(--accent);vertical-align:-2px;margin-left:2px;animation:blink 1.1s steps(1) infinite}
+nav{display:flex;gap:20px;align-items:center}
+nav .links a{color:var(--muted);font:500 13px var(--mono)}
+nav .links a::before{content:"./";color:var(--accent);opacity:.7}
+nav .links a:hover{color:var(--text);text-decoration:none}
+.btn-sm{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:6px;padding:4px 10px;font:600 12px var(--mono);cursor:pointer}
+.btn-sm:hover{border-color:var(--accent)}
+@media (max-width:620px){ nav .links{display:none} }
 
-.hero{padding:72px 0 48px}
-.hero h1{font-size:clamp(32px,6vw,48px);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
-.hero p{font-size:18px;color:var(--muted);max-width:620px;margin:0 0 24px}
+/* hero */
+.hero{padding:72px 0 40px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+@media (max-width:860px){ .hero{grid-template-columns:1fr;padding-top:48px} }
+.status{display:inline-flex;align-items:center;gap:8px;font:500 12px var(--mono);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);background:var(--glow);padding:4px 10px;border-radius:999px;margin-bottom:20px}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pulse 2s infinite}
+.hero h1{font-size:clamp(32px,5.4vw,52px);line-height:1.08;margin:0 0 18px;letter-spacing:-.03em}
+.hero h1 .hl{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.hero p{font-size:17px;color:var(--muted);max-width:560px;margin:0 0 28px}
 .cta{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;padding:10px 18px;border-radius:10px;font-weight:600;border:1px solid var(--line);color:var(--text);background:var(--surface)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn:hover{text-decoration:none;filter:brightness(1.05)}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;font:600 14px var(--mono);border:1px solid var(--line);color:var(--text);background:var(--surface);transition:.15s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#04130c}
+.btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 6px 24px var(--glow)}
 
-section{padding:40px 0}
-h2{font-size:24px;margin:0 0 6px;letter-spacing:-.01em}
-.sub{color:var(--muted);margin:0 0 24px}
+/* terminal */
+.term{background:var(--bg2);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35),0 0 0 1px var(--glow)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--surface)}
+.term-bar span{width:11px;height:11px;border-radius:50%}
+.term-bar span:nth-child(1){background:#ff5f57}.term-bar span:nth-child(2){background:#febc2e}.term-bar span:nth-child(3){background:#28c840}
+.term-bar em{margin-left:auto;font:500 12px var(--mono);color:var(--muted);font-style:normal}
+.term pre{margin:0;padding:18px;font:13.5px/1.75 var(--mono);color:var(--text);white-space:pre-wrap;word-break:keep-all;min-height:260px}
+.term pre span{word-break:keep-all}
+@media (max-width:480px){ .term pre{font-size:11px;padding:14px;min-height:0} }
+.term .p{color:var(--accent)} .term .c{color:var(--accent2)} .term .k{color:var(--warn)} .term .m{color:var(--muted)}
+.caret{display:inline-block;width:8px;height:15px;background:var(--accent);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
-.card .kind{font:500 12px 'JetBrains Mono',monospace;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
-.card h3{margin:0;font-size:19px}
+/* sections */
+section{padding:48px 0}
+.sec-h{display:flex;align-items:baseline;gap:14px;margin:0 0 6px}
+.sec-h .n{font:500 14px var(--mono);color:var(--accent)}
+.sec-h h2{font-size:26px;margin:0;letter-spacing:-.02em}
+.sec-h::after{content:"";flex:1;height:1px;background:var(--line);align-self:center;margin-left:8px}
+.sub{color:var(--muted);margin:0 0 26px;font-size:15px}
+.sub::before{content:"// ";font-family:var(--mono);color:var(--accent);opacity:.7}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0;display:flex;flex-direction:column;transition:.2s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:0 0 0 1px var(--glow),0 14px 40px var(--glow);transform:translateY(-2px)}
+.card .path{font:500 12px var(--mono);color:var(--muted);padding:10px 18px;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:8px}
+.card .path b{color:var(--accent);font-weight:500}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{margin:0;font-size:20px;letter-spacing:-.01em}
 .card p{margin:0;color:var(--muted);font-size:15px}
-.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
-.tag{background:var(--tag);border-radius:6px;padding:2px 8px;font:500 12px 'JetBrains Mono',monospace}
-.links{display:flex;gap:14px;font-size:14px;font-weight:600}
+.card ul{margin:0;padding:0;list-style:none;color:var(--muted);font-size:14px}
+.card li{padding-left:18px;position:relative;margin:3px 0}
+.card li::before{content:"▹";position:absolute;left:0;color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.tag{border:1px solid var(--line);color:var(--accent2);border-radius:5px;padding:1px 8px;font:500 12px var(--mono)}
+.links{display:flex;gap:14px;font:600 13px var(--mono)}
+.badge{font:500 11px var(--mono);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:4px;padding:0 6px}
 
-.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-.skills div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.skills h4{margin:0 0 8px;font-size:14px}
-.skills p{margin:0;color:var(--muted);font-size:14px}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.skills div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.skills h4{margin:0 0 8px;font:600 13px var(--mono);color:var(--accent)}
+.skills h4::before{content:"$ ";color:var(--muted)}
+.skills p{margin:0;font-size:14px;color:var(--text)}
 
-footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:14px}
-footer .contacts{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:12px}
+footer{border-top:1px solid var(--line);padding:48px 0;color:var(--muted);font-size:14px;background:color-mix(in srgb,var(--bg) 70%,transparent)}
+footer h2{color:var(--text)}
+footer .contacts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
+footer .contacts a{font:500 14px var(--mono);border:1px solid var(--line);background:var(--surface);color:var(--text);padding:8px 14px;border-radius:8px}
+footer .contacts a:hover{border-color:var(--accent);text-decoration:none}
+footer .copy{font-family:var(--mono);font-size:12px}
 
 [data-lang="en"] .it, [data-lang="it"] .en{display:none}
+
+@keyframes blink{50%{opacity:0}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body data-lang="it">
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#">Emmanuele Ottanà</a>
+    <a class="brand" href="#"><b>~/</b>emmanuele-ottana<span class="cur"></span></a>
     <nav>
       <span class="links">
-        <a href="#progetti"><span class="it">Progetti</span><span class="en">Projects</span></a>
-        <a href="#competenze"><span class="it">Competenze</span><span class="en">Skills</span></a>
-        <a href="#contatti"><span class="it">Contatti</span><span class="en">Contact</span></a>
+        <a href="#progetti"><span class="it">progetti</span><span class="en">projects</span></a>
+        <a href="#competenze"><span class="it">competenze</span><span class="en">skills</span></a>
+        <a href="#contatti"><span class="it">contatti</span><span class="en">contact</span></a>
       </span>
       <button class="btn-sm" id="langBtn" aria-label="Cambia lingua">EN</button>
       <button class="btn-sm" id="themeBtn" aria-label="Cambia tema">◐</button>
@@ -89,121 +134,140 @@ footer .contacts{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:12px}
 
 <main class="wrap">
   <section class="hero">
-    <h1>
-      <span class="it">Sviluppatore full-stack: app Android, web e gestionali.</span>
-      <span class="en">Full-stack developer: Android apps, web and business software.</span>
-    </h1>
-    <p>
-      <span class="it">Porto idee e fogli Excel complessi dentro prodotti veri: app pubblicate sul Play Store, e-commerce e gestionali usati ogni giorno da aziende.</span>
-      <span class="en">I turn ideas and complex Excel workbooks into real products: apps published on Google Play, e-commerce sites and business software used daily by companies.</span>
-    </p>
-    <div class="cta">
-      <a class="btn primary" href="#progetti"><span class="it">Guarda i progetti</span><span class="en">See projects</span></a>
-      <a class="btn" href="#contatti"><span class="it">Contattami</span><span class="en">Get in touch</span></a>
+    <div>
+      <span class="status"><i></i><span class="it">disponibile per nuovi progetti</span><span class="en">available for new projects</span></span>
+      <h1>
+        <span class="it">Sviluppatore <span class="hl">full-stack</span>: app Android, web e gestionali.</span>
+        <span class="en"><span class="hl">Full-stack</span> developer: Android apps, web and business software.</span>
+      </h1>
+      <p>
+        <span class="it">Porto idee e fogli Excel complessi dentro prodotti veri: app pubblicate sul Play Store, e-commerce e gestionali usati ogni giorno da aziende.</span>
+        <span class="en">I turn ideas and complex Excel workbooks into real products: apps published on Google Play, e-commerce sites and business software used daily by companies.</span>
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#progetti"><span class="it">./progetti →</span><span class="en">./projects →</span></a>
+        <a class="btn" href="#contatti"><span class="it">contattami</span><span class="en">get in touch</span></a>
+      </div>
+    </div>
+    <div class="term" aria-hidden="true">
+      <div class="term-bar"><span></span><span></span><span></span><em>zsh — emmanuele@dev</em></div>
+      <pre id="termOut"></pre>
     </div>
   </section>
 
   <section id="progetti">
-    <h2><span class="it">App Android pubblicate</span><span class="en">Published Android apps</span></h2>
+    <div class="sec-h"><span class="n">01.</span><h2><span class="it">App Android pubblicate</span><span class="en">Published Android apps</span></h2></div>
     <p class="sub"><span class="it">Flutter + Firebase, dal codice alla pubblicazione su Google Play.</span><span class="en">Flutter + Firebase, from code to Google Play release.</span></p>
     <div class="grid">
 
       <article class="card">
-        <span class="kind">Android · Play Store</span>
-        <h3>LiveWin</h3>
-        <p class="it">Gestione di schedine e sistemi con risultati in diretta e notifica a ogni gol. Importa le giocate da più bookmaker e calcola in tempo reale quanto si sta vincendo.</p>
-        <p class="en">Bet slip and system tracker with live scores and a push notification on every goal. Imports bets from several bookmakers and computes current winnings in real time.</p>
-        <ul class="it"><li>Motore di calcolo dei sistemi validato contro l'Excel originale</li><li>Poller su Cloud Functions + notifiche FCM</li><li>Abbonamento Pro, login telefono/email/Google, condivisione via link e QR</li></ul>
-        <ul class="en"><li>System calculation engine validated against the original Excel</li><li>Cloud Functions poller + FCM notifications</li><li>Pro subscription, phone/email/Google sign-in, sharing via link and QR</li></ul>
-        <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.livewin" target="_blank" rel="noopener">Google Play ↗</a></div>
-        <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Cloud Functions</span><span class="tag">FCM</span></div>
+        <div class="path"><span><b>~/apps/</b>livewin</span><span class="badge">● live</span></div>
+        <div class="body">
+          <h3>LiveWin</h3>
+          <p class="it">Gestione di schedine e sistemi con risultati in diretta e notifica a ogni gol. Importa le giocate da più bookmaker e calcola in tempo reale quanto si sta vincendo.</p>
+          <p class="en">Bet slip and system tracker with live scores and a push notification on every goal. Imports bets from several bookmakers and computes current winnings in real time.</p>
+          <ul class="it"><li>Motore di calcolo dei sistemi validato contro l'Excel originale</li><li>Poller su Cloud Functions + notifiche FCM</li><li>Abbonamento Pro, login telefono/email/Google, condivisione via link e QR</li></ul>
+          <ul class="en"><li>System calculation engine validated against the original Excel</li><li>Cloud Functions poller + FCM notifications</li><li>Pro subscription, phone/email/Google sign-in, sharing via link and QR</li></ul>
+          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.livewin" target="_blank" rel="noopener">Google Play ↗</a></div>
+          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">cloud-functions</span><span class="tag">fcm</span></div>
+        </div>
       </article>
 
       <article class="card">
-        <span class="kind">Android · Play Store</span>
-        <h3>WinningBets</h3>
-        <p class="it">Pronostici calcio basati su un modello statistico proprio (rating attacco/difesa, Elo, vantaggio casalingo per lega) e una chat AI che risponde sulle partite.</p>
-        <p class="en">Football predictions from an in-house statistical model (attack/defence ratings, Elo, per-league home advantage) plus an AI chat that answers questions about matches.</p>
-        <ul class="it"><li>Motore predittivo calibrato con backtest (RPS, log-loss, Brier)</li><li>Chat AI con regole di sicurezza lato server</li><li>Bilingue italiano/inglese, pubblicità e abbonamenti</li></ul>
-        <ul class="en"><li>Prediction engine calibrated through backtesting (RPS, log-loss, Brier)</li><li>AI chat with server-side safety rules</li><li>Italian/English, ads and subscriptions</li></ul>
-        <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.winningbets" target="_blank" rel="noopener">Google Play ↗</a></div>
-        <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Node.js</span><span class="tag">LLM</span></div>
+        <div class="path"><span><b>~/apps/</b>winningbets</span><span class="badge">● live</span></div>
+        <div class="body">
+          <h3>WinningBets</h3>
+          <p class="it">Pronostici calcio basati su un modello statistico proprio (rating attacco/difesa, Elo, vantaggio casalingo per lega) e una chat AI che risponde sulle partite.</p>
+          <p class="en">Football predictions from an in-house statistical model (attack/defence ratings, Elo, per-league home advantage) plus an AI chat that answers questions about matches.</p>
+          <ul class="it"><li>Motore predittivo calibrato con backtest (RPS, log-loss, Brier)</li><li>Chat AI con regole di sicurezza lato server</li><li>Bilingue italiano/inglese, pubblicità e abbonamenti</li></ul>
+          <ul class="en"><li>Prediction engine calibrated through backtesting (RPS, log-loss, Brier)</li><li>AI chat with server-side safety rules</li><li>Italian/English, ads and subscriptions</li></ul>
+          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.winningbets" target="_blank" rel="noopener">Google Play ↗</a></div>
+          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">node.js</span><span class="tag">llm</span></div>
+        </div>
       </article>
 
       <article class="card">
-        <span class="kind">Android · Play Store</span>
-        <h3>Faith Friend</h3>
-        <p class="it">Compagno di lettura biblica con chat AI, anche a voce, e versetti del giorno scelti per tema.</p>
-        <p class="en">Bible companion with an AI chat (voice included) and daily verses chosen by theme.</p>
-        <ul class="it"><li>Messaggi vocali che non vanno mai persi, con riprova</li><li>Risposte nella lingua dell'utente (it/en)</li><li>Pagamenti con Stripe</li></ul>
-        <ul class="en"><li>Voice messages that are never lost, with retry</li><li>Replies in the user's language (it/en)</li><li>Stripe payments</li></ul>
-        <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.faithfriend" target="_blank" rel="noopener">Google Play ↗</a></div>
-        <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Stripe</span><span class="tag">LLM</span></div>
+        <div class="path"><span><b>~/apps/</b>faith-friend</span><span class="badge">● live</span></div>
+        <div class="body">
+          <h3>Faith Friend</h3>
+          <p class="it">Compagno di lettura biblica con chat AI, anche a voce, e versetti del giorno scelti per tema.</p>
+          <p class="en">Bible companion with an AI chat (voice included) and daily verses chosen by theme.</p>
+          <ul class="it"><li>Messaggi vocali che non vanno mai persi, con riprova</li><li>Risposte nella lingua dell'utente (it/en)</li><li>Pagamenti con Stripe</li></ul>
+          <ul class="en"><li>Voice messages that are never lost, with retry</li><li>Replies in the user's language (it/en)</li><li>Stripe payments</li></ul>
+          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.faithfriend" target="_blank" rel="noopener">Google Play ↗</a></div>
+          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">stripe</span><span class="tag">llm</span></div>
+        </div>
       </article>
     </div>
   </section>
 
   <section>
-    <h2><span class="it">Web</span><span class="en">Web</span></h2>
+    <div class="sec-h"><span class="n">02.</span><h2>Web</h2></div>
     <p class="sub"><span class="it">Applicazioni web complete, backend e frontend.</span><span class="en">Complete web applications, backend and frontend.</span></p>
     <div class="grid">
       <article class="card">
-        <span class="kind">E-commerce</span>
-        <h3>Store Ottanà</h3>
-        <p class="it">Negozio online completo: catalogo, carrello, ordini e area riservata. API REST in Java e interfaccia in React.</p>
-        <p class="en">Full online store: catalogue, cart, orders and user area. Java REST API with a React frontend.</p>
-        <ul class="it"><li>Autenticazione JWT con Spring Security</li><li>Immagini su Cloudinary, email transazionali con SendGrid</li><li>Database relazionale con JPA, deploy in Docker</li></ul>
-        <ul class="en"><li>JWT authentication with Spring Security</li><li>Images on Cloudinary, transactional email via SendGrid</li><li>Relational database with JPA, Docker deployment</li></ul>
-        <div class="tags"><span class="tag">Java 17</span><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+        <div class="path"><span><b>~/web/</b>store-ottana</span><span>java + react</span></div>
+        <div class="body">
+          <h3>Store Ottanà</h3>
+          <p class="it">Negozio online completo: catalogo, carrello, ordini e area riservata. API REST in Java e interfaccia in React.</p>
+          <p class="en">Full online store: catalogue, cart, orders and user area. Java REST API with a React frontend.</p>
+          <ul class="it"><li>Autenticazione JWT con Spring Security</li><li>Immagini su Cloudinary, email transazionali con SendGrid</li><li>Database relazionale con JPA, deploy in Docker</li></ul>
+          <ul class="en"><li>JWT authentication with Spring Security</li><li>Images on Cloudinary, transactional email via SendGrid</li><li>Relational database with JPA, Docker deployment</li></ul>
+          <div class="tags"><span class="tag">java-17</span><span class="tag">spring-boot</span><span class="tag">react</span><span class="tag">postgresql</span><span class="tag">docker</span></div>
+        </div>
       </article>
     </div>
   </section>
 
   <section>
-    <h2><span class="it">Gestionali desktop</span><span class="en">Desktop business software</span></h2>
+    <div class="sec-h"><span class="n">03.</span><h2><span class="it">Gestionali desktop</span><span class="en">Desktop business software</span></h2></div>
     <p class="sub"><span class="it">Software su misura per aziende, nati da cartelle Excel con macro VBA.</span><span class="en">Custom software for companies, rebuilt from Excel workbooks with VBA macros.</span></p>
     <div class="grid">
       <article class="card">
-        <span class="kind"><span class="it">Gestionale</span><span class="en">Business app</span></span>
-        <h3><span class="it">Gestionale ortofrutticolo</span><span class="en">Fruit &amp; vegetable wholesale manager</span></h3>
-        <p class="it">Acquisti, vendite, clienti, fornitori e documenti per un'azienda di ingrosso ortofrutta, con gestione di più società e utenti.</p>
-        <p class="en">Purchases, sales, customers, suppliers and documents for a produce wholesaler, with multi-company and multi-user support.</p>
-        <div class="tags"><span class="tag">Electron</span><span class="tag">SQLite</span><span class="tag">JavaScript</span></div>
+        <div class="path"><span><b>~/desktop/</b>ortofrutta</span><span>electron</span></div>
+        <div class="body">
+          <h3><span class="it">Gestionale ortofrutticolo</span><span class="en">Fruit &amp; vegetable wholesale manager</span></h3>
+          <p class="it">Acquisti, vendite, clienti, fornitori e documenti per un'azienda di ingrosso ortofrutta, con gestione di più società e utenti.</p>
+          <p class="en">Purchases, sales, customers, suppliers and documents for a produce wholesaler, with multi-company and multi-user support.</p>
+          <div class="tags"><span class="tag">electron</span><span class="tag">sqlite</span><span class="tag">javascript</span></div>
+        </div>
       </article>
       <article class="card">
-        <span class="kind"><span class="it">Gestionale</span><span class="en">Business app</span></span>
-        <h3><span class="it">Gestionale compravendita</span><span class="en">Trading &amp; orders manager</span></h3>
-        <p class="it">Ordini, prezzi, spedizioni e consegne per un'attività di e-commerce. Versione portatile che gira anche da chiavetta USB.</p>
-        <p class="en">Orders, pricing, shipping and deliveries for an e-commerce business. Portable build that runs from a USB stick.</p>
-        <div class="tags"><span class="tag">Electron</span><span class="tag">sql.js</span><span class="tag">JavaScript</span></div>
+        <div class="path"><span><b>~/desktop/</b>compravendita</span><span>electron</span></div>
+        <div class="body">
+          <h3><span class="it">Gestionale compravendita</span><span class="en">Trading &amp; orders manager</span></h3>
+          <p class="it">Ordini, prezzi, spedizioni e consegne per un'attività di e-commerce. Versione portatile che gira anche da chiavetta USB.</p>
+          <p class="en">Orders, pricing, shipping and deliveries for an e-commerce business. Portable build that runs from a USB stick.</p>
+          <div class="tags"><span class="tag">electron</span><span class="tag">sql.js</span><span class="tag">javascript</span></div>
+        </div>
       </article>
     </div>
   </section>
 
   <section id="competenze">
-    <h2><span class="it">Competenze</span><span class="en">Skills</span></h2>
+    <div class="sec-h"><span class="n">04.</span><h2><span class="it">Competenze</span><span class="en">Skills</span></h2></div>
     <p class="sub"><span class="it">Gli strumenti che uso ogni giorno.</span><span class="en">The tools I use every day.</span></p>
     <div class="skills">
-      <div><h4>Mobile</h4><p>Flutter, Dart, Android, Google Play Console</p></div>
-      <div><h4>Backend</h4><p>Java, Spring Boot, Node.js, Firebase Cloud Functions, REST</p></div>
-      <div><h4>Frontend</h4><p>React, JavaScript, HTML, CSS</p></div>
-      <div><h4><span class="it">Dati</span><span class="en">Data</span></h4><p>Firestore, PostgreSQL, MySQL, SQLite</p></div>
-      <div><h4>Desktop</h4><p>Electron</p></div>
-      <div><h4>Cloud</h4><p>Google Cloud, Firebase, Docker, Stripe, RevenueCat</p></div>
+      <div><h4>mobile</h4><p>Flutter, Dart, Android, Google Play Console</p></div>
+      <div><h4>backend</h4><p>Java, Spring Boot, Node.js, Firebase Cloud Functions, REST</p></div>
+      <div><h4>frontend</h4><p>React, JavaScript, HTML, CSS</p></div>
+      <div><h4><span class="it">dati</span><span class="en">data</span></h4><p>Firestore, PostgreSQL, MySQL, SQLite</p></div>
+      <div><h4>desktop</h4><p>Electron</p></div>
+      <div><h4>cloud</h4><p>Google Cloud, Firebase, Docker, Stripe, RevenueCat</p></div>
     </div>
   </section>
 </main>
 
 <footer id="contatti">
   <div class="wrap">
-    <h2><span class="it">Contatti</span><span class="en">Contact</span></h2>
+    <div class="sec-h"><span class="n">05.</span><h2><span class="it">Contatti</span><span class="en">Contact</span></h2></div>
     <p class="sub"><span class="it">Hai un progetto in mente? Scrivimi.</span><span class="en">Have a project in mind? Get in touch.</span></p>
     <div class="contacts">
-      <a href="mailto:manu91eo@gmail.com">manu91eo@gmail.com</a>
-      <a href="https://github.com/EmmanueleOttana" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/emmanuele-ottan%C3%A0-1a7436261" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:manu91eo@gmail.com">✉ manu91eo@gmail.com</a>
+      <a href="https://github.com/EmmanueleOttana" target="_blank" rel="noopener">⌥ github</a>
+      <a href="https://www.linkedin.com/in/emmanuele-ottan%C3%A0-1a7436261" target="_blank" rel="noopener">in linkedin</a>
     </div>
-    <p>© <span id="year"></span> Emmanuele Ottanà</p>
+    <p class="copy">© <span id="year"></span> Emmanuele Ottanà — <span class="it">fatto a mano, niente framework</span><span class="en">handmade, no frameworks</span></p>
   </div>
 </footer>
 
@@ -213,19 +277,51 @@ footer .contacts{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:12px}
   function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
   function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 
+  // terminale: righe con [classe, testo]; 'p' = prompt digitato, il resto compare di colpo
+  var SCRIPT={
+    it:[['p','whoami'],['','Emmanuele Ottanà — sviluppatore full-stack'],['p','cat stack.json'],
+        ['m','{'],['','  "mobile":  ["Flutter", "Dart"],'],['','  "backend": ["Java", "Spring", "Node"],'],['','  "cloud":   ["Firebase", "GCP", "Docker"]'],['m','}'],
+        ['p','ls ~/progetti'],['c','livewin/  winningbets/  faith-friend/  store-ottana/  gestionali/'],
+        ['p','./status'],['k','✔ 3 app pubblicate su Google Play']],
+    en:[['p','whoami'],['','Emmanuele Ottanà — full-stack developer'],['p','cat stack.json'],
+        ['m','{'],['','  "mobile":  ["Flutter", "Dart"],'],['','  "backend": ["Java", "Spring", "Node"],'],['','  "cloud":   ["Firebase", "GCP", "Docker"]'],['m','}'],
+        ['p','ls ~/projects'],['c','livewin/  winningbets/  faith-friend/  store-ottana/  business-apps/'],
+        ['p','./status'],['k','✔ 3 apps published on Google Play']]
+  };
+  var out=document.getElementById('termOut'), run=0;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function type(lang){
+    var id=++run, lines=SCRIPT[lang], html='', i=0;
+    function render(extra){ out.innerHTML=html+(extra||'')+'<span class="caret"></span>'; }
+    function next(){
+      if(id!==run) return;
+      if(i>=lines.length){ html+='<span class="p">❯</span> '; render(); return; }
+      var l=lines[i++];
+      if(l[0]!=='p'||reduce){ html+=(l[0]==='p'?'<span class="p">❯</span> ':'')+'<span class="'+l[0]+'">'+esc(l[1])+'</span>\n'; render(); setTimeout(next,reduce?0:(l[0]==='p'?0:120)); return; }
+      var s=l[1], k=0;
+      (function ch(){
+        if(id!==run) return;
+        if(k<=s.length){ render('<span class="p">❯</span> '+esc(s.slice(0,k++))); setTimeout(ch,55); }
+        else { html+='<span class="p">❯</span> '+esc(s)+'\n'; setTimeout(next,250); }
+      })();
+    }
+    next();
+  }
+
   function setLang(l){
     body.dataset.lang=l; root.lang=l;
     document.getElementById('langBtn').textContent = l==='it' ? 'EN' : 'IT';
-    set('lang',l);
+    set('lang',l); type(l);
   }
   var saved=get('lang') || ((navigator.language||'it').slice(0,2)==='it' ? 'it' : 'en');
   setLang(saved);
   document.getElementById('langBtn').onclick=function(){ setLang(body.dataset.lang==='it'?'en':'it') };
 
-  var t=get('theme'); if(t) root.dataset.theme=t;
+  var t=get('theme'); if(t==='light') root.dataset.theme='light';
   document.getElementById('themeBtn').onclick=function(){
-    var dark = root.dataset.theme ? root.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-    root.dataset.theme = dark ? 'light' : 'dark'; set('theme',root.dataset.theme);
+    if(root.dataset.theme==='light'){ delete root.dataset.theme; set('theme','dark'); }
+    else { root.dataset.theme='light'; set('theme','light'); }
   };
   document.getElementById('year').textContent=new Date().getFullYear();
 })();
