@@ -103,13 +103,10 @@ section{padding:48px 0}
 
 /* contatti */
 #contatti{scroll-margin-top:70px}
-.contact-box{background:var(--surface);border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:14px;padding:22px;box-shadow:0 0 0 1px var(--glow),0 14px 40px var(--glow);display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center}
-@media (max-width:760px){ .contact-box{grid-template-columns:1fr} }
-.wa{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:12px;background:#25d366;color:#04130c;transition:.15s}
-.wa:hover{text-decoration:none;transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.35)}
-.wa svg{width:42px;height:42px;flex:none}
-.wa small{display:block;font:600 12px var(--mono);opacity:.75;text-transform:uppercase;letter-spacing:.06em}
-.wa strong{display:block;font:700 clamp(20px,3.4vw,26px) var(--mono);letter-spacing:-.01em}
+.contact-box{background:var(--surface);border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:14px;padding:18px;box-shadow:0 0 0 1px var(--glow),0 14px 40px var(--glow);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.wa{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:8px;background:#25d366;color:#04130c;font:700 14px var(--mono);transition:.15s}
+.wa:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.35)}
+.wa svg{width:18px;height:18px;flex:none}
 .contacts{display:flex;flex-wrap:wrap;gap:10px}
 .contacts a{font:500 14px var(--mono);border:1px solid var(--line);background:var(--bg2);color:var(--text);padding:8px 14px;border-radius:8px}
 .contacts a:hover{border-color:var(--accent);text-decoration:none}
@@ -171,12 +168,11 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
     <div class="contact-box">
       <a class="wa" href="https://wa.me/393518389960" target="_blank" rel="noopener">
         <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4a10.4 10.4 0 0 1-1.7-5.8C5.1 9.9 10 5.2 16 5.2s10.9 4.7 10.9 10.6S22 26.4 16 26.4zm6-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
-        <span><small>WhatsApp</small><strong>+39 351 838 9960</strong></span>
+        <span>WhatsApp · +39 351 838 9960</span>
       </a>
       <div class="contacts">
         <a href="tel:+393518389960">☎ <span class="it">chiama</span><span class="en">call</span></a>
         <a href="mailto:manu91eo@gmail.com">✉ manu91eo@gmail.com</a>
-        <a href="https://github.com/EmmanueleOttana" target="_blank" rel="noopener">⌥ github</a>
         <a href="https://www.linkedin.com/in/emmanuele-ottan%C3%A0-1a7436261" target="_blank" rel="noopener">in linkedin</a>
       </div>
     </div>
@@ -287,7 +283,7 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
 
 <footer>
   <div class="wrap">
-    <p class="copy">© <span id="year"></span> Emmanuele Ottanà — <span class="it">fatto a mano, niente framework</span><span class="en">handmade, no frameworks</span></p>
+    <p class="copy">© <span id="year"></span> Emmanuele Ottanà — <span class="it">fatto a mano, niente framework</span><span class="en">handmade, no frameworks</span> · <a href="https://github.com/EmmanueleOttana" target="_blank" rel="noopener"><span class="it">codice su GitHub</span><span class="en">code on GitHub</span> ↗</a></p>
   </div>
 </footer>
 
