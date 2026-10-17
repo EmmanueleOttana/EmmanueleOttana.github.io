@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emmanuele Ottanà — Sviluppatore</title>
-<meta name="description" content="Portfolio di Emmanuele Ottanà: app Android, siti web e gestionali desktop.">
+<meta name="description" content="Portfolio di Emmanuele Ottanà: gestionali desktop, siti web e app Android.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -144,12 +144,12 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
     <div>
       <span class="status"><i></i><span class="it">disponibile per nuovi progetti</span><span class="en">available for new projects</span></span>
       <h1>
-        <span class="it">Sviluppatore <span class="hl">full-stack</span>: app Android, web e gestionali.</span>
-        <span class="en"><span class="hl">Full-stack</span> developer: Android apps, web and business software.</span>
+        <span class="it">Sviluppatore <span class="hl">full-stack</span>: gestionali, web e app Android.</span>
+        <span class="en"><span class="hl">Full-stack</span> developer: business software, web and Android apps.</span>
       </h1>
       <p>
-        <span class="it">Porto idee e fogli Excel complessi dentro prodotti veri: app pubblicate sul Play Store, e-commerce e gestionali usati ogni giorno da aziende.</span>
-        <span class="en">I turn ideas and complex Excel workbooks into real products: apps published on Google Play, e-commerce sites and business software used daily by companies.</span>
+        <span class="it">Porto idee e fogli Excel complessi dentro prodotti veri: gestionali usati ogni giorno da aziende, e-commerce e app pubblicate sul Play Store.</span>
+        <span class="en">I turn ideas and complex Excel workbooks into real products: business software used daily by companies, e-commerce sites and apps published on Google Play.</span>
       </p>
       <div class="cta">
         <a class="btn btn-wa" href="https://wa.me/393518389960" target="_blank" rel="noopener"><span class="it">scrivimi su WhatsApp</span><span class="en">message me on WhatsApp</span></a>
@@ -179,46 +179,25 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
   </section>
 
   <section id="progetti">
-    <div class="sec-h"><span class="n">02.</span><h2><span class="it">App Android pubblicate</span><span class="en">Published Android apps</span></h2></div>
-    <p class="sub"><span class="it">Flutter + Firebase, dal codice alla pubblicazione su Google Play.</span><span class="en">Flutter + Firebase, from code to Google Play release.</span></p>
+    <div class="sec-h"><span class="n">02.</span><h2><span class="it">Gestionali desktop</span><span class="en">Desktop business software</span></h2></div>
+    <p class="sub"><span class="it">Software su misura per aziende, nati da cartelle Excel con macro VBA.</span><span class="en">Custom software for companies, rebuilt from Excel workbooks with VBA macros.</span></p>
     <div class="grid">
-
       <article class="card">
-        <div class="path"><span><b>~/apps/</b>livewin</span><span class="badge">● live</span></div>
+        <div class="path"><span><b>~/desktop/</b>ortofrutta</span><span>electron</span></div>
         <div class="body">
-          <h3>LiveWin</h3>
-          <p class="it">Gestione di schedine e sistemi con risultati in diretta e notifica a ogni gol. Importa le giocate da più bookmaker e calcola in tempo reale quanto si sta vincendo.</p>
-          <p class="en">Bet slip and system tracker with live scores and a push notification on every goal. Imports bets from several bookmakers and computes current winnings in real time.</p>
-          <ul class="it"><li>Motore di calcolo dei sistemi validato contro l'Excel originale</li><li>Poller su Cloud Functions + notifiche FCM</li><li>Abbonamento Pro, login telefono/email/Google, condivisione via link e QR</li></ul>
-          <ul class="en"><li>System calculation engine validated against the original Excel</li><li>Cloud Functions poller + FCM notifications</li><li>Pro subscription, phone/email/Google sign-in, sharing via link and QR</li></ul>
-          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.livewin" target="_blank" rel="noopener">Google Play ↗</a></div>
-          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">cloud-functions</span><span class="tag">fcm</span></div>
+          <h3><span class="it">Gestionale ortofrutticolo</span><span class="en">Fruit &amp; vegetable wholesale manager</span></h3>
+          <p class="it">Acquisti, vendite, clienti, fornitori e documenti per un'azienda di ingrosso ortofrutta, con gestione di più società e utenti.</p>
+          <p class="en">Purchases, sales, customers, suppliers and documents for a produce wholesaler, with multi-company and multi-user support.</p>
+          <div class="tags"><span class="tag">electron</span><span class="tag">sqlite</span><span class="tag">javascript</span></div>
         </div>
       </article>
-
       <article class="card">
-        <div class="path"><span><b>~/apps/</b>winningbets</span><span class="badge">● live</span></div>
+        <div class="path"><span><b>~/desktop/</b>compravendita</span><span>electron</span></div>
         <div class="body">
-          <h3>WinningBets</h3>
-          <p class="it">Pronostici calcio basati su un modello statistico proprio (rating attacco/difesa, Elo, vantaggio casalingo per lega) e una chat AI che risponde sulle partite.</p>
-          <p class="en">Football predictions from an in-house statistical model (attack/defence ratings, Elo, per-league home advantage) plus an AI chat that answers questions about matches.</p>
-          <ul class="it"><li>Motore predittivo calibrato con backtest (RPS, log-loss, Brier)</li><li>Chat AI con regole di sicurezza lato server</li><li>Bilingue italiano/inglese, pubblicità e abbonamenti</li></ul>
-          <ul class="en"><li>Prediction engine calibrated through backtesting (RPS, log-loss, Brier)</li><li>AI chat with server-side safety rules</li><li>Italian/English, ads and subscriptions</li></ul>
-          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.winningbets" target="_blank" rel="noopener">Google Play ↗</a></div>
-          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">node.js</span><span class="tag">llm</span></div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="path"><span><b>~/apps/</b>faith-friend</span><span class="badge">● live</span></div>
-        <div class="body">
-          <h3>Faith Friend</h3>
-          <p class="it">Compagno di lettura biblica con chat AI, anche a voce, e versetti del giorno scelti per tema.</p>
-          <p class="en">Bible companion with an AI chat (voice included) and daily verses chosen by theme.</p>
-          <ul class="it"><li>Messaggi vocali che non vanno mai persi, con riprova</li><li>Risposte nella lingua dell'utente (it/en)</li><li>Pagamenti con Stripe</li></ul>
-          <ul class="en"><li>Voice messages that are never lost, with retry</li><li>Replies in the user's language (it/en)</li><li>Stripe payments</li></ul>
-          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.faithfriend" target="_blank" rel="noopener">Google Play ↗</a></div>
-          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">stripe</span><span class="tag">llm</span></div>
+          <h3><span class="it">Gestionale compravendita</span><span class="en">Trading &amp; orders manager</span></h3>
+          <p class="it">Ordini, prezzi, spedizioni e consegne per un'attività di e-commerce. Versione portatile che gira anche da chiavetta USB.</p>
+          <p class="en">Orders, pricing, shipping and deliveries for an e-commerce business. Portable build that runs from a USB stick.</p>
+          <div class="tags"><span class="tag">electron</span><span class="tag">sql.js</span><span class="tag">javascript</span></div>
         </div>
       </article>
     </div>
@@ -242,26 +221,47 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
     </div>
   </section>
 
-  <section>
-    <div class="sec-h"><span class="n">04.</span><h2><span class="it">Gestionali desktop</span><span class="en">Desktop business software</span></h2></div>
-    <p class="sub"><span class="it">Software su misura per aziende, nati da cartelle Excel con macro VBA.</span><span class="en">Custom software for companies, rebuilt from Excel workbooks with VBA macros.</span></p>
+  <section id="app">
+    <div class="sec-h"><span class="n">04.</span><h2><span class="it">App Android pubblicate</span><span class="en">Published Android apps</span></h2></div>
+    <p class="sub"><span class="it">Flutter + Firebase, dal codice alla pubblicazione su Google Play.</span><span class="en">Flutter + Firebase, from code to Google Play release.</span></p>
     <div class="grid">
+
       <article class="card">
-        <div class="path"><span><b>~/desktop/</b>ortofrutta</span><span>electron</span></div>
+        <div class="path"><span><b>~/apps/</b>faith-friend</span><span class="badge">● live</span></div>
         <div class="body">
-          <h3><span class="it">Gestionale ortofrutticolo</span><span class="en">Fruit &amp; vegetable wholesale manager</span></h3>
-          <p class="it">Acquisti, vendite, clienti, fornitori e documenti per un'azienda di ingrosso ortofrutta, con gestione di più società e utenti.</p>
-          <p class="en">Purchases, sales, customers, suppliers and documents for a produce wholesaler, with multi-company and multi-user support.</p>
-          <div class="tags"><span class="tag">electron</span><span class="tag">sqlite</span><span class="tag">javascript</span></div>
+          <h3>Faith Friend</h3>
+          <p class="it">Compagno di lettura biblica con chat AI, anche a voce, e versetti del giorno scelti per tema.</p>
+          <p class="en">Bible companion with an AI chat (voice included) and daily verses chosen by theme.</p>
+          <ul class="it"><li>Messaggi vocali che non vanno mai persi, con riprova</li><li>Risposte nella lingua dell'utente (it/en)</li><li>Pagamenti con Stripe</li></ul>
+          <ul class="en"><li>Voice messages that are never lost, with retry</li><li>Replies in the user's language (it/en)</li><li>Stripe payments</li></ul>
+          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.faithfriend" target="_blank" rel="noopener">Google Play ↗</a></div>
+          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">stripe</span><span class="tag">llm</span></div>
         </div>
       </article>
+
       <article class="card">
-        <div class="path"><span><b>~/desktop/</b>compravendita</span><span>electron</span></div>
+        <div class="path"><span><b>~/apps/</b>livewin</span><span class="badge">● live</span></div>
         <div class="body">
-          <h3><span class="it">Gestionale compravendita</span><span class="en">Trading &amp; orders manager</span></h3>
-          <p class="it">Ordini, prezzi, spedizioni e consegne per un'attività di e-commerce. Versione portatile che gira anche da chiavetta USB.</p>
-          <p class="en">Orders, pricing, shipping and deliveries for an e-commerce business. Portable build that runs from a USB stick.</p>
-          <div class="tags"><span class="tag">electron</span><span class="tag">sql.js</span><span class="tag">javascript</span></div>
+          <h3>LiveWin</h3>
+          <p class="it">Monitoraggio in tempo reale di eventi sportivi: importa i dati da più piattaforme esterne, li incrocia con un feed di risultati live e ricalcola gli importi a ogni aggiornamento, con notifica push istantanea.</p>
+          <p class="en">Real-time sports event tracking: imports data from several external platforms, matches it against a live results feed and recomputes amounts on every update, with instant push notifications.</p>
+          <ul class="it"><li>Motore di calcolo combinatorio validato contro l'Excel originale</li><li>Elaborazione lato server su Cloud Functions + notifiche FCM</li><li>Abbonamento Pro, login telefono/email/Google, condivisione via link e QR</li></ul>
+          <ul class="en"><li>Combinatorial calculation engine validated against the original Excel</li><li>Server-side processing on Cloud Functions + FCM notifications</li><li>Pro subscription, phone/email/Google sign-in, sharing via link and QR</li></ul>
+          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.livewin" target="_blank" rel="noopener">Google Play ↗</a></div>
+          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">cloud-functions</span><span class="tag">fcm</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="path"><span><b>~/apps/</b>winningbets</span><span class="badge">● live</span></div>
+        <div class="body">
+          <h3>WinningBets</h3>
+          <p class="it">Motore statistico di previsione sui risultati del calcio, sviluppato da zero (rating attacco/difesa, Elo, vantaggio casalingo per lega), con una chat AI che spiega i dati.</p>
+          <p class="en">Statistical forecasting engine for football results, built from scratch (attack/defence ratings, Elo, per-league home advantage), with an AI chat that explains the data.</p>
+          <ul class="it"><li>Motore predittivo calibrato con backtest (RPS, log-loss, Brier)</li><li>Chat AI con regole di sicurezza lato server</li><li>Bilingue italiano/inglese, pubblicità e abbonamenti</li></ul>
+          <ul class="en"><li>Prediction engine calibrated through backtesting (RPS, log-loss, Brier)</li><li>AI chat with server-side safety rules</li><li>Italian/English, ads and subscriptions</li></ul>
+          <div class="links"><a href="https://play.google.com/store/apps/details?id=com.emmanuele.winningbets" target="_blank" rel="noopener">Google Play ↗</a></div>
+          <div class="tags"><span class="tag">flutter</span><span class="tag">firebase</span><span class="tag">node.js</span><span class="tag">llm</span></div>
         </div>
       </article>
     </div>
@@ -297,11 +297,11 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
   var SCRIPT={
     it:[['p','whoami'],['','Emmanuele Ottanà — sviluppatore full-stack'],['p','cat stack.json'],
         ['m','{'],['','  "mobile":  ["Flutter", "Dart"],'],['','  "backend": ["Java", "Spring", "Node"],'],['','  "cloud":   ["Firebase", "GCP", "Docker"]'],['m','}'],
-        ['p','ls ~/progetti'],['c','livewin/  winningbets/  faith-friend/  store-ottana/  gestionali/'],
+        ['p','ls ~/progetti'],['c','gestionali/  store-ottana/  faith-friend/  livewin/  winningbets/'],
         ['p','./status'],['k','✔ 3 app pubblicate su Google Play']],
     en:[['p','whoami'],['','Emmanuele Ottanà — full-stack developer'],['p','cat stack.json'],
         ['m','{'],['','  "mobile":  ["Flutter", "Dart"],'],['','  "backend": ["Java", "Spring", "Node"],'],['','  "cloud":   ["Firebase", "GCP", "Docker"]'],['m','}'],
-        ['p','ls ~/projects'],['c','livewin/  winningbets/  faith-friend/  store-ottana/  business-apps/'],
+        ['p','ls ~/projects'],['c','business-apps/  store-ottana/  faith-friend/  livewin/  winningbets/'],
         ['p','./status'],['k','✔ 3 apps published on Google Play']]
   };
   var out=document.getElementById('termOut'), run=0;
