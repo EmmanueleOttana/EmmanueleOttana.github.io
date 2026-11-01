@@ -129,18 +129,32 @@ section{padding:48px 0}
 
 /* contatti: la destinazione della pagina */
 #contatti{scroll-margin-top:70px}
-.contact-wrap{background:var(--surface);border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:16px;padding:32px;box-shadow:0 0 0 1px var(--glow),0 20px 60px var(--glow);display:grid;grid-template-columns:1fr 1.15fr;gap:40px}
-@media (max-width:860px){ .contact-wrap{grid-template-columns:1fr;gap:28px;padding:22px} }
-.contact-wrap h2{font-size:clamp(26px,3.8vw,36px);line-height:1.15;letter-spacing:-.03em;margin:8px 0 12px}
-.contact-wrap .lead{color:var(--muted);margin:0 0 24px}
-.steps{list-style:none;counter-reset:s;padding:0;margin:0 0 24px}
-.steps li{counter-increment:s;position:relative;padding-left:42px;margin:0 0 16px}
-.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);background:var(--glow);color:var(--accent);font:600 13px/26px var(--mono);text-align:center}
-.steps b{display:block}
+.contact-wrap{background:var(--surface);border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:16px;padding:26px 28px;box-shadow:0 0 0 1px var(--glow),0 20px 60px var(--glow);display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:start}
+@media (max-width:860px){ .contact-wrap{grid-template-columns:1fr;gap:22px;padding:20px} }
+.contact-wrap h2{font-size:clamp(26px,3.6vw,34px);line-height:1.15;letter-spacing:-.03em;margin:0 0 10px}
+.contact-wrap .lead{color:var(--muted);margin:0 0 18px}
+.steps{list-style:none;counter-reset:s;padding:0;margin:0 0 18px}
+.steps li{counter-increment:s;position:relative;padding-left:34px;margin:0 0 10px;line-height:24px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;border:1px solid var(--accent);background:var(--glow);color:var(--accent);font:600 12px/22px var(--mono);text-align:center}
 .steps small{color:var(--muted);font-size:14px}
-.trust{list-style:none;padding:16px 0 0;margin:0;border-top:1px dashed var(--line);font:500 13px var(--mono);color:var(--muted)}
-.trust li{margin:4px 0}
-.trust li::before{content:"✔ ";color:var(--accent)}
+.trust{padding:14px 0 0;margin:0;border-top:1px dashed var(--line);font:500 12.5px/1.7 var(--mono);color:var(--muted)}
+.trust span span{display:inline-block;white-space:nowrap;margin-right:14px}
+.trust span span::before{content:"✔ ";color:var(--accent)}
+/* il resto del modulo si apre dopo la prima scelta */
+.rest{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.rest > div{overflow:hidden;min-height:0}
+.brief.open .rest{grid-template-rows:1fr}
+.brief.open .rest > div{padding-top:4px}
+/* compatto: una riga sola; si allarga appena si sceglie o si scrive */
+.brief #bDesc{height:44px;min-height:0;resize:none;overflow:hidden;transition:height .3s ease;margin-bottom:6px}
+.brief.open #bDesc{height:120px;resize:vertical;overflow:auto;margin-bottom:20px}
+@media (max-width:620px){
+  .trust{display:none}
+  .contact-wrap .lead{font-size:15px;margin-bottom:14px}
+  .steps li{font-size:15px}
+  .contact-wrap{padding:18px 16px}
+  .chips{gap:6px} .chips .chip{font-size:11.5px;padding:4px 9px}
+}
 .brief fieldset{border:0;padding:0;margin:0 0 20px;min-width:0}
 .brief legend,.brief .lbl{display:block;padding:0;font:600 13px var(--mono);margin:0 0 10px}
 .brief legend::before,.brief .lbl::before{content:"> ";color:var(--accent)}
@@ -157,7 +171,7 @@ section{padding:48px 0}
 .send{display:flex;flex-wrap:wrap;gap:10px}
 button.btn{cursor:pointer}
 .hint{font-size:13px;color:var(--muted);margin:10px 0 0}
-.direct{margin-top:22px;padding-top:18px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.direct{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .direct .lbl{width:100%;font:500 13px var(--mono);color:var(--muted);margin:0}
 .wa{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:8px;background:#25d366;color:#04130c;font:700 14px var(--mono);transition:.15s}
 .wa:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.35)}
@@ -230,26 +244,21 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
     <div class="sec-h"><span class="n">01.</span><h2><span class="it">Contattami</span><span class="en">Contact me</span></h2></div>
     <div class="contact-wrap">
       <div>
-        <span class="status"><i></i><span class="it">disponibile per nuovi progetti</span><span class="en">available for new projects</span></span>
         <h2><span class="it">Hai un progetto in mente? <span class="hl">Parliamone.</span></span><span class="en">Got a project in mind? <span class="hl">Let's talk.</span></span></h2>
-        <p class="lead"><span class="it">Non serve avere già tutto chiaro: bastano due righe su cosa ti serve. Il resto lo capiamo insieme.</span><span class="en">You don't need a full spec: two lines on what you need are enough. We'll work out the rest together.</span></p>
+        <p class="lead"><span class="it">Bastano due righe su cosa ti serve: il resto lo capiamo insieme.</span><span class="en">Two lines on what you need are enough: we'll work out the rest together.</span></p>
         <ol class="steps">
-          <li><b><span class="it">Mi scrivi</span><span class="en">You message me</span></b><small><span class="it">Dal modulo qui accanto, su WhatsApp o per email. Rispondo entro 24 ore.</span><span class="en">Through the form, on WhatsApp or by email. I reply within 24 hours.</span></small></li>
-          <li><b><span class="it">Chiamata gratuita di 15 minuti</span><span class="en">Free 15-minute call</span></b><small><span class="it">Capiamo insieme cosa ti serve davvero, senza impegno.</span><span class="en">We figure out what you really need, no strings attached.</span></small></li>
-          <li><b><span class="it">Preventivo entro 48 ore</span><span class="en">Quote within 48 hours</span></b><small><span class="it">Prezzo chiaro, tempi e cosa ricevi alla consegna.</span><span class="en">Clear price, timeline and what you get on delivery.</span></small></li>
+          <li><b><span class="it">Mi scrivi</span><span class="en">You message me</span></b> <small><span class="it">· rispondo entro 24 ore</span><span class="en">· I reply within 24 hours</span></small></li>
+          <li><b><span class="it">Chiamata gratuita</span><span class="en">Free call</span></b> <small><span class="it">· 15 minuti, senza impegno</span><span class="en">· 15 minutes, no strings attached</span></small></li>
+          <li><b><span class="it">Preventivo</span><span class="en">Quote</span></b> <small><span class="it">· entro 48 ore, prezzo chiaro</span><span class="en">· within 48 hours, clear price</span></small></li>
         </ol>
-        <ul class="trust">
-          <li><span class="it">3 app pubblicate su Google Play</span><span class="en">3 apps published on Google Play</span></li>
-          <li><span class="it">gestionali usati ogni giorno da aziende</span><span class="en">business software used daily by companies</span></li>
-          <li><span class="it">italiano e inglese</span><span class="en">Italian and English</span></li>
-        </ul>
+        <p class="trust"><span class="it"><span>3 app su Google Play</span><span>gestionali usati da aziende</span><span>italiano e inglese</span></span><span class="en"><span>3 apps on Google Play</span><span>software used by companies</span><span>Italian and English</span></span></p>
       </div>
 
       <form class="brief" id="brief">
         <fieldset>
           <legend><span class="it">Cosa ti serve?</span><span class="en">What do you need?</span></legend>
           <div class="chips">
-            <label><input type="radio" name="tipo" value="gestionale" required><span class="chip"><span class="it">gestionale desktop</span><span class="en">desktop business software</span></span></label>
+            <label><input type="radio" name="tipo" value="gestionale"><span class="chip"><span class="it">gestionale desktop</span><span class="en">desktop business software</span></span></label>
             <label><input type="radio" name="tipo" value="webapp"><span class="chip"><span class="it">gestionale online</span><span class="en">online business software</span></span></label>
             <label><input type="radio" name="tipo" value="excel"><span class="chip"><span class="it">da Excel a programma</span><span class="en">from Excel to software</span></span></label>
             <label><input type="radio" name="tipo" value="sito"><span class="chip"><span class="it">sito e-commerce / vetrina</span><span class="en">e-commerce / business website</span></span></label>
@@ -259,6 +268,9 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
             <label><input type="radio" name="tipo" value="altro"><span class="chip"><span class="it">altro</span><span class="en">other</span></span></label>
           </div>
         </fieldset>
+        <label class="lbl" for="bDesc"><span class="it">Raccontami il progetto</span><span class="en">Tell me about the project</span></label>
+        <textarea id="bDesc" name="desc" rows="1" required></textarea>
+        <div class="rest" id="briefRest" inert><div>
         <fieldset>
           <legend><span class="it">Budget indicativo</span><span class="en">Rough budget</span></legend>
           <div class="chips">
@@ -268,8 +280,6 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
             <label><input type="radio" name="budget" value="b0"><span class="chip"><span class="it">non so ancora</span><span class="en">not sure yet</span></span></label>
           </div>
         </fieldset>
-        <label class="lbl" for="bDesc"><span class="it">Raccontami il progetto</span><span class="en">Tell me about the project</span></label>
-        <textarea id="bDesc" name="desc" required></textarea>
         <label class="lbl" for="bName"><span class="it">Il tuo nome</span><span class="en">Your name</span></label>
         <input type="text" id="bName" name="nome" autocomplete="name">
         <div class="send">
@@ -277,9 +287,10 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
           <button class="btn" type="submit" value="mail"><span class="it">invia per email</span><span class="en">send by email</span></button>
         </div>
         <p class="hint"><span class="it">Si apre WhatsApp o la tua email con il messaggio già scritto: controlli e invii tu.</span><span class="en">WhatsApp or your email app opens with the message ready: you review it and hit send.</span></p>
+        </div></div>
 
         <div class="direct">
-          <p class="lbl"><span class="it">Preferisci scrivermi direttamente?</span><span class="en">Rather reach me directly?</span></p>
+          <p class="lbl"><span class="it">Oppure scrivimi direttamente:</span><span class="en">Or reach me directly:</span></p>
           <a class="wa" href="https://wa.me/393518389960" data-wa target="_blank" rel="noopener" data-goatcounter-click="whatsapp-diretto"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>+39 351 838 9960</span></a>
           <div class="contacts">
             <a href="tel:+393518389960" data-goatcounter-click="telefono">☎ <span class="it">chiama</span><span class="en">call</span></a>
@@ -450,13 +461,13 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
   var TXT={
     it:{hi:'Ciao Emmanuele, ho visto il tuo portfolio e vorrei parlarti di un progetto.',
         type:'Cosa mi serve',budget:'Budget indicativo',name:'Sono',subj:'Nuovo progetto dal portfolio',
-        ph:'Es. "Gestisco gli ordini su un Excel con macro e vorrei un programma più semplice e veloce…"',
+        ph:'Es. "Vorrei un programma al posto del mio Excel…"',
         types:{gestionale:'gestionale desktop',webapp:'gestionale online',excel:'da Excel a programma',sito:'sito e-commerce / vetrina',
                app:'app Android / iOS',ai:'chatbot / intelligenza artificiale',modifiche:'modifiche a un progetto esistente',altro:'altro'},
         budgets:{b1:'meno di 500 €',b2:'500 – 1.500 €',b3:'1.500 – 5.000 €',b0:'non lo so ancora'}},
     en:{hi:"Hi Emmanuele, I saw your portfolio and I'd like to talk about a project.",
         type:'What I need',budget:'Rough budget',name:'My name',subj:'New project from your portfolio',
-        ph:'E.g. "I track orders in an Excel file with macros and I\'d like simpler, faster software…"',
+        ph:'E.g. "I need software to replace my Excel file…"',
         types:{gestionale:'desktop business software',webapp:'online business software',excel:'from Excel to software',sito:'e-commerce / business website',
                app:'Android / iOS app',ai:'chatbot / AI',modifiche:'changes to an existing project',altro:'other'},
         budgets:{b1:'under €500',b2:'€500 – 1,500',b3:'€1,500 – 5,000',b0:'not sure yet'}}
@@ -466,6 +477,21 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
 
   var form=document.getElementById('brief'), desc=document.getElementById('bDesc');
   function picked(n){ var r=form.querySelector('input[name="'+n+'"]:checked'); return r?r.value:''; }
+  // il modulo resta aperto finché c'è una scelta o del testo; senza nessuno dei due si ricompatta
+  var rest=document.getElementById('briefRest'), lastTipo='';
+  function syncBrief(){
+    var on=!!picked('tipo') || desc.value.trim()!=='';
+    form.classList.toggle('open',on); rest.inert=!on;
+  }
+  // un clic sulla scelta già attiva la toglie (i radio da soli non si deselezionano)
+  form.querySelectorAll('input[name="tipo"]').forEach(function(r){
+    r.addEventListener('click',function(){
+      if(r.value===lastTipo){ r.checked=false; lastTipo=''; } else lastTipo=r.value;
+      syncBrief();
+    });
+  });
+  desc.addEventListener('input',syncBrief);
+  lastTipo=picked('tipo'); syncBrief();   // il browser può ripristinare il modulo tornando indietro
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var T=TXT[body.dataset.lang], tipo=picked('tipo'), budget=picked('budget'), nome=form.nome.value.trim();
@@ -473,7 +499,8 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
     if(tipo) lines.push(T.type+': '+T.types[tipo]);
     if(budget) lines.push(T.budget+': '+T.budgets[budget]);
     if(nome) lines.push(T.name+': '+nome);
-    lines.push('',desc.value.trim());
+    if(lines.length>2) lines.push('');
+    lines.push(desc.value.trim());
     var text=lines.join('\n'), via=e.submitter&&e.submitter.value==='mail'?'mail':'wa';
     count('invio-modulo-'+via);
     if(via==='mail') location.href='mailto:'+MAIL+'?subject='+encodeURIComponent(T.subj)+'&body='+encodeURIComponent(text);
@@ -484,7 +511,7 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
   document.querySelectorAll('a[data-type]').forEach(function(a){
     a.addEventListener('click',function(){
       var r=form.querySelector('input[name="tipo"][value="'+a.dataset.type+'"]');
-      if(r) r.checked=true;
+      if(r){ r.checked=true; lastTipo=r.value; syncBrief(); }
       setTimeout(function(){ desc.focus({preventScroll:true}); },500);
     });
   });
