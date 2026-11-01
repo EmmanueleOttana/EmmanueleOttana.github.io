@@ -146,7 +146,7 @@ section{padding:48px 0}
 .brief.open .rest{grid-template-rows:1fr}
 .brief.open .rest > div{padding-top:4px}
 /* compatto: una riga sola; si allarga appena si sceglie o si scrive */
-.brief #bDesc{height:44px;min-height:0;resize:none;overflow:hidden;transition:height .3s ease;margin-bottom:6px}
+.brief #bDesc{height:var(--compact-h,44px);min-height:0;resize:none;overflow:hidden;transition:height .3s ease;margin-bottom:6px}
 .brief.open #bDesc{height:120px;resize:vertical;overflow:auto;margin-bottom:20px}
 @media (max-width:620px){
   .trust{display:none}
@@ -491,6 +491,21 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
     });
   });
   desc.addEventListener('input',syncBrief);
+  // da compatto il campo è alto quanto serve all'esempio: su schermi stretti va a capo e non deve tagliarsi
+  function fitCompact(){
+    if(desc.value) return;
+    desc.value=desc.placeholder;
+    var h=desc.scrollHeight+desc.offsetHeight-desc.clientHeight;
+    desc.value='';
+    desc.style.transition='none';          // nuova misura applicata subito, senza animazione
+    desc.style.setProperty('--compact-h',h+'px');
+    desc.offsetHeight; desc.style.transition='';
+  }
+  var fitPending=false;
+  addEventListener('resize',function(){
+    if(fitPending) return; fitPending=true;
+    requestAnimationFrame(function(){ fitPending=false; fitCompact(); });
+  });
   lastTipo=picked('tipo'); syncBrief();   // il browser può ripristinare il modulo tornando indietro
   form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -526,7 +541,7 @@ footer .copy{font-family:var(--mono);font-size:12px;margin:0}
     body.dataset.lang=l; root.lang=l;
     document.getElementById('langBtn').textContent = l==='it' ? 'EN' : 'IT';
     document.querySelectorAll('a[data-wa]').forEach(function(a){ a.href=waUrl(TXT[l].hi); });
-    desc.placeholder=TXT[l].ph;
+    desc.placeholder=TXT[l].ph; fitCompact();
     set('lang',l); type(l);
   }
   var saved=get('lang') || ((navigator.language||'it').slice(0,2)==='it' ? 'it' : 'en');
